@@ -5,6 +5,7 @@ namespace frontend\controllers;
 
 
 use Yii;
+use frontend\models\TestForm;
 
 class PostController extends AppController
 {
@@ -25,7 +26,10 @@ class PostController extends AppController
            debug(Yii::$app->request->post());
            return 'test';
         }
-        return $this->render('test');
+        $model = new TestForm();
+
+        $this->view->title = 'All articles';
+        return $this->render('test', compact('model'));
     }
 
     public function actionShow()
