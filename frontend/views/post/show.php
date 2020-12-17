@@ -1,7 +1,12 @@
 <h1>Show Action!!!</h1>
 
 <button class="btn btn-success" id="btn">Click</button>
-
+<?php
+//$this->title = "One article"
+?>
+<?php $this->beginBlock('block1'); ?>
+    <h1>Заголовок страницы</h1>
+<?php $this->endBlock(); ?>
 
 <?php
 //    $this->registerJsFile('@web/js/scripts.js',

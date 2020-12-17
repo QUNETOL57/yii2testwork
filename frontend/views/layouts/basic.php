@@ -10,8 +10,9 @@ AppAsset::register($this);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Document</title>
+    <title><?= $this->title ?></title>
     <?php $this->registerCsrfMetaTags() ?>
+
     <?php $this->head() ?>
 </head>
 <body>
@@ -33,6 +34,9 @@ AppAsset::register($this);
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
             </ul>
+            <?php if( isset($this->blocks['block1'])): ?>
+                <?php echo $this->blocks['block1'] ?>
+            <?php endif;?>
 
             <?= $content ?>
         </div>
