@@ -28,8 +28,13 @@ class PostController extends AppController
            return 'test';
         }
         $model = new TestForm();
+//        $model->name = 'Автор';
+//        $model->email = 'mail@mail.ru';
+//        $model->text = 'Какой то текст';
+//        $model->save();
+
         if( $model->load(Yii::$app->request->post())){
-            if( $model->validate()){
+            if( $model->save()){
                 Yii::$app->session->setFlash('success','Данные приняты');
                 return $this->refresh();
             }else{
@@ -48,24 +53,6 @@ class PostController extends AppController
         $this->view->registerMetaTag(['name' => 'keywords', 'content' => 'ключевики...']);
         $this->view->registerMetaTag(['name' => 'description', 'content' => 'описание страницы...']);
 
-//        $cats = Category::find()->all();
-//        $cats = Category::find()->orderBy(['id' => SORT_DESC])->all();
-//        $cats = Category::find()->asArray()->all();
-//        $cats = Category::find()->asArray()->where('parent=691')->all();
-//        $cats = Category::find()->asArray()->where(['parent' => 691])->all();
-//        $cats = Category::find()->asArray()->where(['like','title','pp'])->all();
-//        $cats = Category::find()->asArray()->where(['<=','id', 695])->all();
-//        $cats = Category::find()->asArray()->where(['<=','id', 695])->limit(2)->all();
-//        $cats = Category::find()->asArray()->where(['<=','id', 695])->one();
-//        $cats = Category::find()->asArray()->where(['parent' => 691])->count();
-//        $cats = Category::findOne(['parent' => 691]);
-//        $cats = Category::findAll(['parent' => 691]);
-//        $query = "SELECT * FROM categories WHERE title LIKE '%pp%'";
-//        $query = "SELECT * FROM categories WHERE title LIKE :search";
-//        $cats = Category::findBySql($query, [':search' => '%pp%'])->all();
-//        $cats = Category::findOne(694);
-//        $cats = Category::find()->where(['id' => 694])->all();
-//        $cats = Category::find()->all();
         $cats = Category::find()->with('products')->all();
 
 
