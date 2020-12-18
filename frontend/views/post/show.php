@@ -10,11 +10,21 @@
 
 <h1>Show Action!!!</h1>
 
-<?php //foreach ($cats as $cat){
-//    echo $cat->title . '<br>';
-//}?>
+<?php foreach ($cats as $cat){
+    echo '<ul>';
+        echo '<li>' . $cat->title . '</li>';
+        $products = $cat->products;
+        foreach ($products as $product){
+            echo '<ul>';
+                echo '<li>' . $product->title . '</li>';
+            echo '</ul>';
+        }
+    echo '</ul>';
+}?>
 
-<?php \frontend\controllers\debug($cats)?>
+<?php //\frontend\controllers\debug($cats)?>
+<?php //echo count($cats->products)?>
+<?php //\frontend\controllers\debug($cats)?>
 
 <?php
     $js = <<<JS

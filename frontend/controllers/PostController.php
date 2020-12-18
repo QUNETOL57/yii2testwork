@@ -61,8 +61,13 @@ class PostController extends AppController
 //        $cats = Category::findOne(['parent' => 691]);
 //        $cats = Category::findAll(['parent' => 691]);
 //        $query = "SELECT * FROM categories WHERE title LIKE '%pp%'";
-        $query = "SELECT * FROM categories WHERE title LIKE :search";
-        $cats = Category::findBySql($query, [':search' => '%pp%'])->all();
+//        $query = "SELECT * FROM categories WHERE title LIKE :search";
+//        $cats = Category::findBySql($query, [':search' => '%pp%'])->all();
+//        $cats = Category::findOne(694);
+//        $cats = Category::find()->where(['id' => 694])->all();
+//        $cats = Category::find()->all();
+        $cats = Category::find()->with('products')->all();
+
 
         return $this->render('show', compact('cats'));
     }
