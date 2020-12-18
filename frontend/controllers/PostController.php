@@ -27,6 +27,14 @@ class PostController extends AppController
            return 'test';
         }
         $model = new TestForm();
+        if( $model->load(Yii::$app->request->post())){
+            if( $model->validate()){
+                Yii::$app->session->setFlash('success','Данные приняты');
+                return $this->refresh();
+            }else{
+                Yii::$app->session->setFlash('error', 'Ошибка');
+            }
+        }
 
         $this->view->title = 'All articles';
         return $this->render('test', compact('model'));
