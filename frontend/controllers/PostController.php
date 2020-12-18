@@ -4,6 +4,7 @@
 namespace frontend\controllers;
 
 
+use frontend\models\Category;
 use Yii;
 use frontend\models\TestForm;
 
@@ -46,6 +47,9 @@ class PostController extends AppController
         $this->view->title = 'One article';
         $this->view->registerMetaTag(['name' => 'keywords', 'content' => 'ключевики...']);
         $this->view->registerMetaTag(['name' => 'description', 'content' => 'описание страницы...']);
-        return $this->render('show');
+
+        $cats = Category::find()->all();
+
+        return $this->render('show', compact('cats'));
     }
 }

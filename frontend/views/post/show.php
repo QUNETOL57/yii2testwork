@@ -1,4 +1,4 @@
-<h1>Show Action!!!</h1>
+
 
 <button class="btn btn-success" id="btn">Click</button>
 <?php
@@ -8,15 +8,9 @@
     <h1>Заголовок страницы</h1>
 <?php $this->endBlock(); ?>
 
-<?php
-//    $this->registerJsFile('@web/js/scripts.js',
-//        ['depends' => 'yii\web\YiiAsset']);
+<h1>Show Action!!!</h1>
 
-?>
-
-<?php //$this->registerJs("$('.container').append('<p>SHOW !!!</p>');", \yii\web\View::POS_LOAD);?>
-
-<?php //$this->registerCss('.container{background:red;}'); ?>
+<?php \frontend\controllers\debug($cats)?>
 
 <?php
     $js = <<<JS
