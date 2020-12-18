@@ -10,6 +10,10 @@
 
 <h1>Show Action!!!</h1>
 
+<?php //foreach ($cats as $cat){
+//    echo $cat->title . '<br>';
+//}?>
+
 <?php \frontend\controllers\debug($cats)?>
 
 <?php
