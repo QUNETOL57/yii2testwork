@@ -30,11 +30,11 @@ class PostController extends AppController
 //        $post = TestForm::findOne(2);
 //        debug($post);
 //        $post->delete();
-//        $model = new TestForm();
-//        $model->name = 'Автор';
-//        $model->email = 'mail@mail.ru';
-//        $model->text = 'Какой то текст';
-//        $model->save();
+        $model = new TestForm();
+        $model->name = 'Автор';
+        $model->email = 'mail@mail.ru';
+        $model->text = 'Какой то текст';
+        $model->save();
 
         if( $model->load(Yii::$app->request->post())){
             if( $model->save()){
